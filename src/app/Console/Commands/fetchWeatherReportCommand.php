@@ -56,8 +56,10 @@
             $areas      = $this->area::where('region_name', '関東')->get(['pinpoint_code']);
 
             foreach ($areas as $area) {
-                $report = $httpClient->getWeatherReportFromPinpoint($area->pinpoint_code);
-                $this->create($report);
+                $reports = $httpClient->getWeatherReportFromPinpoint($area->pinpoint_code);
+                foreach ($reports as $report) {
+                    $this->create($report);
+                }
             }
         }
 

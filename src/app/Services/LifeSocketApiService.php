@@ -40,7 +40,7 @@
          */
         public function getWeatherReportFromPinpoint(
             string $pinpointCode,
-            int $days = 1,
+            int $days = 3,
             string $lang = 'ja'
         ) {
             $query = array_merge([
@@ -50,8 +50,7 @@
 
             $apiUrl = $this->getApiUrl('/v1/weather/' . $pinpointCode);
 
-            $responses = json_decode(json_encode($this->getApiData($apiUrl, $query)), false);
-            $response  = current($responses);
+            $response = json_decode(json_encode($this->getApiData($apiUrl, $query)), false);
 
             return (object)$response;
 

@@ -2,9 +2,9 @@
 
     namespace App\Http\Controllers\Api;
 
-    use App\Http\Resources\WeatherCollection;
     use App\Http\Resources\WeatherResource;
     use App\Weather;
+    use Carbon\Carbon;
     use Illuminate\Http\Request;
     use App\Http\Controllers\Controller;
 
@@ -13,13 +13,29 @@
         /**
          * Display a listing of the resource.
          *
-
+         * @param Request $request
+         *
+         * @return \Illuminate\Http\Resources\Json\AnonymousResourceCollection
          */
         public function index(): \Illuminate\Http\Resources\Json\AnonymousResourceCollection
         {
 
             return WeatherResource::collection(Weather::all());
         }
+
+        public function archive(Request $request): \Illuminate\Http\Resources\Json\AnonymousResourceCollection
+        {
+            $year  = $request->year;
+            $month = $request->month;
+            $day   = $request->day;
+
+            $query = Carbon::now()->format($year . '-' . $month . '-' . $day);
+
+            return WeatherResource::collection(
+                Weather::whereDate('data_time', $query)->get()
+            );
+        }
+
 
         /**
          * Show the form for creating a new resource.

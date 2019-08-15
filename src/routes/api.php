@@ -14,6 +14,8 @@
     */
 
     Route::group(['middleware' => ['api']], function () {
+        Route::get('weathers/{year}/{month}/{day}', 'Api\WeathersController@archive');
+
         Route::apiResources([
             'weathers' => 'Api\WeathersController',
             'areas'    => 'Api\AreasController'
