@@ -23,6 +23,6 @@
 
         Public function weathers(): \Illuminate\Database\Eloquent\Relations\HasMany
         {
-            return $this->hasMany(Weather::class);
+            return $this->hasMany(Weather::class,'pinpoint_code','pinpoint_code');
         }
     }

@@ -20,6 +20,6 @@
 
         Public function area(): \Illuminate\Database\Eloquent\Relations\BelongsTo
         {
-            Return $this->belongsTo(Area::class);
+            Return $this->belongsTo(Area::class,'pinpoint_code','pinpoint_code');
         }
     }
