@@ -15,7 +15,7 @@ class CreateWeathersTable extends Migration
     {
         Schema::create('weathers', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('pinpoint_code');
+            $table->integer('pinpoint_code');
             $table->dateTime('data_time');
             $table->string('weather_code');
             $table->string('weather_name');

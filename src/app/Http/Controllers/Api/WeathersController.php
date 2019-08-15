@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Area;
+use App\Services\LifeSocketApiService;
 use App\Weather;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
