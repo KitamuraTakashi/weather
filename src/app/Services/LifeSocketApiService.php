@@ -40,7 +40,7 @@
          */
         public function getWeatherReportFromPinpoint(
             string $pinpointCode,
-            int $days = 3,
+            int $days = 7,
             string $lang = 'ja'
         ) {
             $query = array_merge([

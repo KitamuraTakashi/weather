@@ -25,7 +25,8 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        $schedule->command('fetchWeatherReport')->daily();
+        //毎週日曜の0時に天気予報のデータを取得する
+        $schedule->command('fetchWeatherReport')->weekly()->sundays()->at('00:00');
     }
 
     /**
