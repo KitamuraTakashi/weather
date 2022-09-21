@@ -25,6 +25,6 @@
     },
     "dependencies": {
         "webpack": "^4.39.2",
-        "vuetify": "^2.0.7"
+        "vuetify": "^2.6.10"
     }
 }
